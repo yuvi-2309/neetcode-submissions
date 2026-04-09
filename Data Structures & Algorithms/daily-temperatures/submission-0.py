@@ -1,0 +1,23 @@
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        res = []
+        n = len(temperatures)
+
+        for i in range(n):
+
+            j = i + 1
+            count = 1
+
+            while j < n:
+
+                if temperatures[j] > temperatures[i]:
+                    break
+                
+                count += 1
+                j += 1
+            
+            count = 0 if n == j else count
+
+            res.append(count)
+        
+        return res
